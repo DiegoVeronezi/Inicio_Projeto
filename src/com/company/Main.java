@@ -2,24 +2,33 @@ package com.company;
 
 import java.util.Scanner;
 
+import java.util.Calendar;
+
 public class Main {
 
     public static void main(String[] args) {
 
-        Conta minhaConta;
-        minhaConta = new Conta();
+        Conta minhaConta = new Conta();
+
+        Onibus fatima = new Onibus("fatima");
+
+        LeituraArquivos la = new LeituraArquivos("fatima.txt");
+
+        fatima.setHorarios(la.lerArquivo());
+
+
 
         Scanner s = new Scanner(System.in);
 
 
-
+     /*
         //recebe o nome
         System.out.println("digite o seu nome:");
-        minhaConta.nome = s.next();
+        minhaConta.setNome(s.next());
 
         //recebe o sobrenome
         System.out.println("digite o seu sobrenome:");
-        minhaConta.sobreNome = s.next();
+        minhaConta.setSobreNome();
 
         //recebe o cpf
         System.out.println("digite o seu cpf: ");
@@ -68,6 +77,34 @@ public class Main {
 
         // imprime o nome completo
         System.out.println("Nome completo: " + minhaConta.nome + " " + minhaConta.sobreNome);
+
+        */
+
+        Calendar data = Calendar.getInstance();
+        int hora = data.get(Calendar.HOUR_OF_DAY);
+        int min = data.get(Calendar.MINUTE);
+        System.out.println(hora+":"+min);
+
+
+        System.out.println("digite a linha do ônibus:");
+        String bus = s.next();
+
+       if (fatima.getLinha().equals(bus)) {
+
+
+
+            for (int i = 0; i < 6; i++) {
+
+                if(hora < fatima.getHorarios()[i])){
+
+                    System.out.println(fatima.getHorarios()[i]);
+                    break;
+                }
+
+
+            }
+        }
+
 
 
 
