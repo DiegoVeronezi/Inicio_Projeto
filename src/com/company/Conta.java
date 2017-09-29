@@ -4,6 +4,8 @@ public class Conta {
 
     private String nome;
     private String sobreNome;
+    private String email;
+    private String email2;
     private String sexo;
     private String senha;
     private String senha2;
@@ -30,6 +32,22 @@ public class Conta {
 
     public void setSobreNome(String sobreNome) {
         this.sobreNome = sobreNome;
+    }
+
+    public String getEmail() {
+        return email;
+    }
+
+    public void setEmail(String email) {
+        this.email = email;
+    }
+
+    public String getEmail2() {
+        return email2;
+    }
+
+    public void setEmail2(String email2) {
+        this.email2 = email2;
     }
 
     public String getSexo() {

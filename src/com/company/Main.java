@@ -16,69 +16,90 @@ public class Main {
 
         fatima.setHorarios(la.lerArquivo());
 
-
-
         Scanner s = new Scanner(System.in);
 
+        /*/-----------Cadastro(leitura dos dados)-------------
 
-     /*
+        System.out.println("\n********Preencha com seus dados*********\n");
+
         //recebe o nome
-        System.out.println("digite o seu nome:");
+        System.out.println("Digite o seu nome:");
         minhaConta.setNome(s.next());
 
         //recebe o sobrenome
-        System.out.println("digite o seu sobrenome:");
-        minhaConta.setSobreNome();
+        System.out.println("Digite o seu sobrenome:");
+        minhaConta.setSobreNome(s.next());
+
+        //recebe o email
+        System.out.println("Digite o seu email:");
+        minhaConta.setEmail(s.next());
 
         //recebe o cpf
-        System.out.println("digite o seu cpf: ");
-        minhaConta.cpf = s.nextLong();
+        System.out.println("Digite o seu cpf: ");
+        minhaConta.setCpf(s.nextLong());
 
         //recebe dia
-        System.out.println("digite o dia de seu nascimento: ");
-        minhaConta.dia = s.nextInt();
+        System.out.println("Digite o dia de seu nascimento: ");
+        minhaConta.setDia(s.nextInt());
 
         //recebe mes
-        System.out.println("digite o mês de seu nascimento: ");
-        minhaConta.mes = s.nextInt();
+        System.out.println("Digite o mês de seu nascimento: ");
+        minhaConta.setMes(s.nextInt());
 
         //recebe ano
-        System.out.println("digite o ano de seu nascimento: ");
-        minhaConta.ano = s.nextInt();
+        System.out.println("Digite o ano de seu nascimento: ");
+        minhaConta.setAno(s.nextInt());
 
         //recebe sexo
         System.out.println("Sexo M | F");
-        minhaConta.sexo = s.next();
+        minhaConta.setSexo(s.next());
 
         //recebe senha
-        System.out.println("digite uma senha: ");
-        minhaConta.senha = s.next();
+        System.out.println("Digite uma senha: ");
+        minhaConta.setSenha(s.next());
+
+
+        //----------------Fim Cadastro---------------
+
+        //----------------Login-------------
+
+        System.out.println("******* Login *******\n");
+
+        //recebe a confirmação do email
+        System.out.println("Digite o email: ");
+        minhaConta.setEmail2(s.next());
 
         //recebe a confirmação da senha
-        System.out.println("confirme a senha: ");
-        minhaConta.senha2 = s.next();
+        System.out.println("Confirme a senha: ");
+        minhaConta.setSenha2(s.next());
+
 
         //teste da senha
-        while(!minhaConta.senha2.equals(minhaConta.senha)){
+        while(!minhaConta.getSenha2().equals(minhaConta.getSenha()) ||
+                !minhaConta.getEmail2().equals(minhaConta.getEmail()) ){
 
-            System.out.println("Senha não confere! Repita novamente!");
+            System.out.println("Senha ou email não confere! Repita novamente!");
 
-            //recebe senha
-            System.out.println("digite uma senha: ");
-            minhaConta.senha = s.next();
+            //recebe a confirmação do email
+            System.out.println("Digite o email: ");
+            minhaConta.setEmail2(s.next());
 
             //recebe a confirmação da senha
-            System.out.println("confirme a senha: ");
-            minhaConta.senha2 = s.next();
+            System.out.println("Confirme a senha: ");
+            minhaConta.setSenha2(s.next());
 
         }
 
-        System.out.println("Senha OK!");
+        System.out.println("\nLogin efetuado com Sucesso!\n\n\n\n");
 
-        // imprime o nome completo
+        //----------- Fim Login ------------
+
+
+
+        /* imprime o nome completo
         System.out.println("Nome completo: " + minhaConta.nome + " " + minhaConta.sobreNome);
-
         */
+
 
         Calendar data = Calendar.getInstance();
         int hora = data.get(Calendar.HOUR_OF_DAY);
@@ -86,7 +107,7 @@ public class Main {
         System.out.println(hora+":"+min);
 
 
-        System.out.println("digite a linha do ônibus:");
+        System.out.println("Digite a linha do ônibus:");
         String bus = s.next();
 
        if (fatima.getLinha().equals(bus)) {
@@ -95,7 +116,7 @@ public class Main {
 
             for (int i = 0; i < 6; i++) {
 
-                if(hora < fatima.getHorarios()[i])){
+                if(hora < Integer.parseInt(fatima.getHorarios()[i])){
 
                     System.out.println(fatima.getHorarios()[i]);
                     break;
@@ -104,8 +125,6 @@ public class Main {
 
             }
         }
-
-
 
 
     }
